@@ -14,5 +14,28 @@ const crearCandidato = async (datos) => {
   }
 };
 
+const verCandidatos = async () => {
+  try {
+    const query = {
+      text: "select * from candidatos",
+    };
+    const response = await pool.query(query);
+    return response.rows;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
-export { crearCandidato }
+const editarCandidatos = async (datos) => {
+  try {
+    const query = {
+      text: "update candidatos set nombre=$1, foto=$2 where id=$3 returning *",
+      values: datos,
+    };
+    const response = await pool.query(query);
+    return response.rows;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export { crearCandidato, verCandidatos, editarCandidatos };

@@ -215,9 +215,9 @@
   async function editCandidato(id) {
     const name = $("#nombreEdit").val();
     const img = $("#fotoEdit").val();
-    const { data } = await axios.put("http://localhost:3000/candidato", {
-      name,
-      img,
+    const { data } = await axios.put("/candidato", {
+      nombre:name,
+      foto:img,
       id,
     });
     $("#exampleModal").modal('hide')
@@ -276,7 +276,7 @@
   });
 
   async function getCandidatos() {
-    const response = await fetch("http://localhost:3000/candidatos");
+    const response = await fetch("/candidatos");
     let data = await response.json();
     $(".candidatos").html("");
     $("#ganadorSelect").html(
