@@ -230,8 +230,11 @@
     let nombre = $("form:first input:first").val();
     let foto = $("form:first input:nth-child(2)").val();
     let color = $("form:first input:last").val();
-    const response = await fetch("http://localhost:3000/candidato", {
+    const response = await fetch("/candidato", {
       method: "post",
+      headers: {
+      "Content-Type": "application/json"
+    },
       body: JSON.stringify({
         nombre,
         foto,

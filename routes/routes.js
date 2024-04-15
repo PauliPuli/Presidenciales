@@ -12,8 +12,12 @@ router.get("/",(req,res)=>{
 router.post("/candidato",async(req,res)=>{
     const {nombre,foto,color}=req.body;
     const datos=[nombre,foto,color];
+    console.log(datos)
+    console.log(req.body)
    await crearCandidato(datos);
    res.send('Candidato agregado')
 })
+
+router.get
 
 export default router;

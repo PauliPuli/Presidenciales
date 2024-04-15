@@ -14,4 +14,5 @@ const crearCandidato = async (datos) => {
   }
 };
 
+
 export { crearCandidato }
